@@ -13,7 +13,7 @@ export default {
     if (lintableFiles.length > 0) {
       tasks.push(`eslint --fix ${lintableFiles.map(f => `"${f}"`).join(' ')}`);
     }
-    tasks.push(`prettier --write ${files.map(f => `"${f}"`).join(' ')}`);
+    tasks.push(`prettier --check ${files.map(f => `"${f}"`).join(' ')}`);
     tasks.push(`vitest related --run --passWithNoTests ${files.map(f => `"${f}"`).join(' ')}`);
     return tasks;
   },
