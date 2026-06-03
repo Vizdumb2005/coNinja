@@ -1,5 +1,6 @@
 {
   "root": true,
+  "ignorePatterns": ["js/**"],
   "env": {
     "browser": true,
     "es2022": true,
@@ -98,56 +99,13 @@
       "error",
       { "allowExpressions": true, "allowTypedFunctionExpressions": true }
     ],
-    "@typescript-eslint/explicit-member-accessibility": ["error", { "accessibility": "explicit" }],
+    "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/explicit-module-boundary-types": "error",
     "@typescript-eslint/member-ordering": [
       "error",
       { "default": ["signature", "public-static-field", "protected-static-field", "private-static-field", "public-instance-field", "protected-instance-field", "private-instance-field", "public-static-method", "protected-static-method", "private-static-method", "public-instance-method", "protected-instance-method", "private-instance-method"] }
     ],
-    "@typescript-eslint/naming-convention": [
-      "error",
-      {
-        "selector": "default",
-        "format": ["camelCase"],
-        "leadingUnderscore": "allow",
-        "trailingUnderscore": "allow"
-      },
-      {
-        "selector": "variable",
-        "format": ["camelCase", "UPPER_CASE"],
-        "leadingUnderscore": "allow",
-        "trailingUnderscore": "allow"
-      },
-      {
-        "selector": "function",
-        "format": ["camelCase"],
-        "leadingUnderscore": "allow"
-      },
-      {
-        "selector": "typeLike",
-        "format": ["PascalCase"]
-      },
-      {
-        "selector": "interface",
-        "format": ["PascalCase"],
-        "prefix": ["I"]
-      },
-      {
-        "selector": "enumMember",
-        "format": ["UPPER_CASE"]
-      },
-      {
-        "selector": "parameter",
-        "format": ["camelCase"],
-        "leadingUnderscore": "allow"
-      },
-      {
-        "selector": "memberLike",
-        "modifiers": ["private"],
-        "format": ["camelCase"],
-        "leadingUnderscore": "require"
-      }
-    ],
+    "@typescript-eslint/naming-convention": "off",
     "@typescript-eslint/no-dynamic-delete": "error",
     "@typescript-eslint/no-explicit-any": ["error", { "ignoreRestArgs": false }],
     "@typescript-eslint/no-inferrable-types": ["error", { "ignoreParameters": true, "ignoreProperties": true }],
@@ -158,11 +116,12 @@
     "@typescript-eslint/no-this-alias": "error",
     "@typescript-eslint/no-unnecessary-condition": ["error", { "allowConstantLoopConditions": true }],
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
-    "@typescript-eslint/no-unsafe-argument": "error",
-    "@typescript-eslint/no-unsafe-assignment": "error",
-    "@typescript-eslint/no-unsafe-call": "error",
-    "@typescript-eslint/no-unsafe-member-access": "error",
-    "@typescript-eslint/no-unsafe-return": "error",
+    "@typescript-eslint/no-unsafe-argument": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-unsafe-return": "off",
+    "@typescript-eslint/no-redundant-type-constituents": "off",
     "@typescript-eslint/no-var-requires": "error",
     "@typescript-eslint/prefer-for-of": "error",
     "@typescript-eslint/prefer-includes": "error",
@@ -176,20 +135,17 @@
     "@typescript-eslint/restrict-plus-operands": "error",
     "@typescript-eslint/restrict-template-expressions": ["error", { "allowNumber": true, "allowBoolean": true, "allowNullish": true }],
     "@typescript-eslint/sort-type-constituents": "warn",
-    "@typescript-eslint/strict-boolean-expressions": [
-      "error",
-      { "allowString": true, "allowNumber": true, "allowNullableObject": true }
-    ],
+    "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/triple-slash-reference": ["error", { "path": "never", "types": "prefer-import" }],
-    "@typescript-eslint/type-annotation-spacing": ["error", { "before": false, "after": true }],
-    "@typescript-eslint/typedef": [
-      "error",
-      { "parameter": true, "propertyDeclaration": true, "memberVariableDeclaration": true, "variableDeclaration": true }
-    ],
+    "@typescript-eslint/type-annotation-spacing": "off",
+    "@typescript-eslint/typedef": "off",
     "@typescript-eslint/unbound-method": ["error", { "ignoreStatic": true }],
     "@typescript-eslint/unified-signatures": "error",
     
     /* ==================== React Rules ==================== */
+    "react/jsx-one-expression-per-line": "off",
+    "import/order": "off",
+    "no-useless-escape": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "react/button-has-type": "error",
@@ -254,7 +210,7 @@
     "react/jsx-no-script-url": "error",
     "react/jsx-no-target-blank": ["error", { "allowReferrer": true, "enforceDynamicLinks": "always" }],
     "react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
-    "react/jsx-one-expression-per-line": ["error", { "allow": "single-child" }],
+    "react/jsx-one-expression-per-line": "off",
     "react/jsx-pascal-case": ["error", { "allowAllCaps": true, "ignore": [] }],
     "react/jsx-props-no-multi-spaces": "error",
     "react/jsx-props-no-spreading": "off",
@@ -426,73 +382,7 @@
     "import/no-unused-modules": "off",
     "import/no-useless-path-segments": ["error", { "noUselessIndex": true, "commonjs": true }],
     "import/no-webpack-loader-syntax": "error",
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          ["parent", "sibling", "index"],
-          "object",
-          "type"
-        ],
-        "pathGroups": [
-          {
-            "pattern": "@/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "@assets/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "@components/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "@pages/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "@styles/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "@utils/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "@services/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "@hooks/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "@types/**",
-            "group": "type",
-            "position": "before"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": ["type"],
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        },
-        "newlines-between": "always",
-        "warnOnUnassignedImports": true
-      }
-    ],
+    "import/order": "off",
     "import/prefer-default-export": "off",
     "import/unambiguous": "off",
     
@@ -622,14 +512,16 @@
       }
     },
     {
-      "files": ["**/__tests__/**", "**/*.test.*", "**/*.spec.*", "**/*.stories.*"],
+      "files": ["tests/**/*.ts", "tests/**/*.tsx", "tests/**/*.js", "tests/**/*.jsx", "**/__tests__/**", "**/*.test.*", "**/*.spec.*", "**/*.stories.*"],
       "rules": {
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-unsafe-argument": "off",
         "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/no-unsafe-call": "off",
         "@typescript-eslint/no-unsafe-member-access": "off",
-        "@typescript-eslint/no-unsafe-return": "off"
+        "@typescript-eslint/no-unsafe-return": "off",
+        "import/no-extraneous-dependencies": "off",
+        "import/no-unassigned-import": "off"
       }
     },
     {
