@@ -354,22 +354,27 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 8px 18px;
-  border-radius: 6px;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-sm);
   font-family: var(--font-sans);
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
   border: 1px solid transparent;
   transition: var(--transition-smooth);
+  user-select: none;
 }
 
 .btn-icon {
   width: 38px;
   height: 38px;
-  padding: 0;
-  border-radius: 50%;
+  padding: 0 !important;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .btn-primary {
@@ -379,7 +384,7 @@ body {
   border-color: rgba(255, 115, 0, 0.2);
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(255, 115, 0, 0.45);
 }
@@ -390,7 +395,7 @@ body {
   color: var(--text-primary);
 }
 
-.btn-outline:hover {
+.btn-outline:hover:not(:disabled) {
   background-color: rgba(255, 255, 255, 0.05);
   border-color: var(--border-hover);
 }
@@ -401,7 +406,7 @@ body {
   color: #ff9133;
 }
 
-.btn-purple:hover {
+.btn-purple:hover:not(:disabled) {
   background-color: rgba(255, 115, 0, 0.2);
   border-color: rgba(255, 115, 0, 0.4);
 }
@@ -412,15 +417,56 @@ body {
   border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
-.btn-danger:hover {
+.btn-danger:hover:not(:disabled) {
   background-color: #dc2626;
   border-color: rgba(220, 38, 38, 0.4);
 }
 
 .btn-sm {
-  padding: 4px 10px;
+  padding: var(--space-xs) var(--space-sm);
   font-size: 0.75rem;
-  border-radius: 4px;
+  border-radius: var(--radius-xs);
+}
+
+/* Button States (Disabled & Loading) */
+.btn:disabled,
+.btn[disabled],
+.btn.disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn-loading {
+  pointer-events: none !important;
+  position: relative !important;
+  color: transparent !important;
+}
+
+.btn-loading * {
+  visibility: hidden !important;
+}
+
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-right-color: transparent;
+  animation: btn-spinner 0.6s linear infinite;
+  visibility: visible !important;
+}
+
+@keyframes btn-spinner {
+  to { transform: rotate(360deg); }
 }
 
 /* Badges */
