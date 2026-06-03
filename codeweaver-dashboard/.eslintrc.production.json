@@ -54,9 +54,6 @@
     /* No new Function */
     "no-new-func": "error",
     
-    /* No implicit any */
-    "@typescript-eslint/no-implicit-any": "error",
-    
     /* No explicit any */
     "@typescript-eslint/no-explicit-any": "error",
     
