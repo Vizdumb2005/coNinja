@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Badge } from './Badge';
+
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   readonly variant?: 'glass' | 'metric' | 'task';
   readonly title?: string;
@@ -50,7 +52,7 @@ export const Card: React.FC<CardProps> = ({
               <div className='progress-bar-fill' style={{ width: `${progress}%` }} />
             </div>
           )}
-          {priority !== undefined && <span className='priority-badge'>Priority: {priority}</span>}
+          {priority !== undefined && <Badge variant='warning'>Priority: {priority}</Badge>}
         </div>
       )}
 
