@@ -153,6 +153,9 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 /* Topbar Navigation */
@@ -2247,7 +2250,7 @@ body {
 
 /* Dojo Workbench Styling */
 .viewport:has(#tab-dojo-workbench.active) {
-  padding: 0 !important;
+  padding: var(--space-xxl) !important;
   overflow: hidden !important;
 }
 
@@ -3632,6 +3635,8 @@ input:checked + .slider-toggle:before {
   bottom: 0;
   left: 0;
   right: 0;
+  max-width: 1920px;
+  margin: 0 auto;
   height: 44px;
   min-height: 44px;
   background: rgba(6, 4, 3, 0.93);
