@@ -26,6 +26,7 @@
   window.api = {
     /** Fetch project metadata */
     async fetchProject() {
+      // TODO: Backend integration with ticket references (e.g. [CN-201])
       await delay();
       return {
         name: window.state.activeProject,
@@ -41,12 +42,14 @@
 
     /** Fetch all agents */
     async fetchAgents() {
+      // TODO: Backend integration with ticket references (e.g. [CN-202])
       await delay();
       return clone(Object.values(window.state.agents));
     },
 
     /** Fetch a single agent by ID */
     async fetchAgent(agentId) {
+      // TODO: Backend integration with ticket references (e.g. [CN-203])
       await delay();
       const agent = window.state.agents[agentId];
       if (!agent) throw new Error(`Agent not found: ${agentId}`);
@@ -55,6 +58,7 @@
 
     /** Fetch all tasks, optionally filtered by status */
     async fetchTasks(status) {
+      // TODO: Backend integration with ticket references (e.g. [CN-204])
       await delay();
       let tasks = clone(window.state.tasks);
       if (status) {
@@ -65,6 +69,7 @@
 
     /** Fetch a single task by ID */
     async fetchTask(taskId) {
+      // TODO: Backend integration with ticket references (e.g. [CN-205])
       await delay();
       const task = window.state.tasks.find((t) => t.id === taskId);
       if (!task) throw new Error(`Task not found: ${taskId}`);
@@ -75,6 +80,7 @@
      *  Returns the updated task.
      */
     async updateTask(taskId, updates) {
+      // TODO: Backend integration with ticket references (e.g. [CN-206])
       await delay();
       const task = window.state.tasks.find((t) => t.id === taskId);
       if (!task) throw new Error(`Task not found: ${taskId}`);
@@ -89,6 +95,7 @@
 
     /** Update an agent's status */
     async updateAgentStatus(agentId, status, currentTaskId) {
+      // TODO: Backend integration with ticket references (e.g. [CN-207])
       await delay(100);
       const agent = window.state.agents[agentId];
       if (!agent) throw new Error(`Agent not found: ${agentId}`);
